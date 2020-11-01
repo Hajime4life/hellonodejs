@@ -9,8 +9,7 @@ http.createServer((req,res) => {
 
     // fs.readFile('./some_folder/json.json','utf-8', (err, data) => {
     //     if (err) throw err;
-    //     data=JSON.parse(data)
-    //   res.end(data.age)
+    //   res.end(data)
     // })
     
     // fs.readdir('./some_images', (err,files)=>{
