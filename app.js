@@ -16,5 +16,14 @@ http.createServer((req,res) => {
     //     if (err) throw err;
     //     res.end(files)
     // })
+    
+    if (req.url ===  + './'){
+        fs.readFile('./index.html', 'utf-8', (err, data) => {
+            if (err) throw err;
+            res.end(data)
+        })    
+    } 
+     
+   
 
 }).listen(3000)
