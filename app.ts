@@ -1,39 +1,39 @@
+import { url } from "inspector"
+
 const fs = require('fs')
-const http = require('http');
+const http = require('http')
 
 http.createServer((req,res) => {
-    // fs.readFile('./some_folder/text.txt', 'utf-8',(err,data)=>{
-    //     if (err) throw err;
-    //     res.end(data);
-    // })
 
-    // fs.readFile('./some_folder/json.json','utf-8', (err, data) => {
-    //     if (err) throw err;
-    //   res.end(data)
-    // })
-    
-    // fs.readdir('./some_images', (err,files)=>{
-    //     if (err) throw err;
-    //     res.end(files)
-    // })
-    
-    // fs.readFile('./index.html', 'utf-8', (err, data) => {
-    //     if (err) throw err;
-    //     res.end(data);
-    // })
+    // switch (req.url){
+
+    //     case 'value1': 
+    //     break;
+
+    //     case 'value1':
+    //     break;
+
+    //     case 'value1':
+    //     break;
+
+    //     case 'value1':    
+    //     break;
+
+    // }
 
     if (req.url === "/index.html" || req.url === "/") {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        fs.readFile('./index.html', 'utf-8', (err, data) => {
+        res.writeHead(200, { 'Content-Type': 'text/html' })
+        fs.readFile(process.cwd()+'/some_folder/' + 'index.html', 'utf-8', (err, data) => {
             if (err) throw err
             res.end(data)
         })
-    } 
+    }
     
     else {
-        res.writeHead(404, {"Content-Type": "text/plain"});
-        res.write("404 Not Found\n");
-        res.end();
+        res.writeHead(404, {"Content-Type": "text/plain"})
+        res.write("404 Not Found\n")
+        res.end()
     }
+
         
 }).listen(3000) 
