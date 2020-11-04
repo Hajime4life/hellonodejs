@@ -1,7 +1,7 @@
-import {createServer} from 'http'
 const fs = require('fs')
+const http = require('http');
 
-createServer((req,res) => {
+http.createServer((req,res) => {
     // fs.readFile('./some_folder/text.txt', 'utf-8',(err,data)=>{
     //     if (err) throw err;
     //     res.end(data);
@@ -17,16 +17,23 @@ createServer((req,res) => {
     //     res.end(files)
     // })
     
-    
     // fs.readFile('./index.html', 'utf-8', (err, data) => {
     //     if (err) throw err;
     //     res.end(data);
     // })
-    
+
     if (req.url === "/index.html" || req.url === "/") {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
         fs.readFile('./index.html', 'utf-8', (err, data) => {
             if (err) throw err
             res.end(data)
         })
+    } 
+    
+    else {
+        res.writeHead(404, {"Content-Type": "text/plain"});
+        res.write("404 Not Found\n");
+        res.end();
     }
-}).listen(3000)
+        
+}).listen(3000) 
