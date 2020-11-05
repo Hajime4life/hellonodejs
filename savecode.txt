@@ -17,3 +17,21 @@ fs.readFile('./some_folder/text.txt', 'utf-8',(err,data)=>{
         if (err) throw err
         res.end(data)
     })
+
+
+    if (req.url === "/index.html" || req.url === "/") {
+        res.writeHead(200, { 'Content-Type': 'text/html' })
+        fs.readFile(process.cwd()+'/some_folder/' + 'index.html', 'utf-8', (err, data) => {
+            if (err) throw err
+            res.end(data)
+        })
+    }
+    
+    else {
+        res.writeHead(404, {"Content-Type": "text/html"})
+        
+        fs.readFile(process.cwd()+'/some_folder/' + '404.html', 'utf-8', (err,data) => {
+            if (err) throw err
+            res.end(data)
+        })
+    }
