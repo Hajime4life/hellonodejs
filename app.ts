@@ -15,23 +15,31 @@ http.createServer((req,res) => {
                 res.end(data)
             }); break;  
 
-        case '/' :
+        case '/':
             res.writeHead(200, { 'Content-Type': 'text/html' })
-            fs.readFile(process.cwd()+'/some_folder/' + 'index.html', 'utf-8', (err, data) => {
+            fs.readFile(process.cwd()+'/some_folder/index.html', 'utf-8', (err, data) => {
                 if (err) throw err
                 res.end(data);
             });   break;
 
+        case  '/index.html':
+            res.writeHead(200, { 'Content-Type': 'text/html' })
+            fs.readFile(process.cwd()+'/some_folder/index.html', 'utf-8', (err, data) => {
+                if (err) throw err
+                res.end(data);
+            });   break;
+
+        
         case '/some_page.html': 
             res.writeHead(200, { 'Content-Type': 'text/html' })
             fs.readFile(process.cwd() + '/some_folder/some_page.html', 'utf-8', (err,data) => {
                 if (err) throw err
                 res.end(data)
-            })
+            }); break;
 
         default: 
             res.writeHead(404, {"Content-Type": "text/html"})
-            fs.readFile(process.cwd()+'/some_folder/' + '404.html', 'utf-8', (err,data) => {
+            fs.readFile(process.cwd()+'/some_folder/404.html', 'utf-8', (err,data) => {
                 if (err) throw err
                 res.end(data)
                 
