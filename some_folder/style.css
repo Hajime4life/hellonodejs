@@ -1,3 +1,12 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 h1 {
+    color: red;
+}
+
+#agu{
+    
+    font-size: 20px;
     color: red;
 }
