@@ -1,4 +1,4 @@
-const http = require('http')
+"const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
@@ -7,7 +7,7 @@ http.createServer((req,res) => {
    
     if (req.url === '/') req.url = '/index.html'
     
-    let eName = path.extname(`${req.url}`)
+    let eName = path.extname(req.url)
     let cType = 'text/html' 
 
     switch(eName){
@@ -33,7 +33,7 @@ http.createServer((req,res) => {
         if (err) {
             fs.readFile(process.cwd()+'/public/404.html', (error, content) => {
                 if (error) throw error
-                res.writeHead(404, { 'Content-Type': 'text/html' });
+                res.writeHead(404, { 'Content-Type': cType });
                 res.end(content, 'utf-8');
             });
         }    
