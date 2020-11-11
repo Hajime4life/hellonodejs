@@ -10,11 +10,6 @@ http.createServer((req,res) => {
     let eName = path.extname(`${req.url}`)
     let cType = 'text/html' 
 
-    // console.log('Extname: ', eName)
-    // console.log('cType: ', cType)
-    // console.log('Fold: ', req.url)
-
-
     switch(eName){
         case '.html':
             cType = 'text/html';
@@ -36,9 +31,9 @@ http.createServer((req,res) => {
     fs.readFile(process.cwd() + req.url, 'utf-8', (err, data) => {
 
         if (err) {
-            fs.readFile(process.cwd()+'public/404.html', (error, content) => {
-               
-                res.writeHead(200, { 'Content-Type': 'text/html' });
+            fs.readFile(process.cwd()+'/public/404.html', (error, content) => {
+                if (error) throw error
+                res.writeHead(404, { 'Content-Type': 'text/html' });
                 res.end(content, 'utf-8');
             });
         }    
