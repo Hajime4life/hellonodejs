@@ -2,15 +2,22 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-http.createServer((req,res) => { 
+function isFolder(someFolder) {
+    if (path.extname(someFolder) == '') {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-   
+http.createServer((req,res) => { 
+  
     if (req.url === '/') req.url = '/index.html'
     
     let eName = path.extname(req.url)
     let cType = 'text/html' 
 
-    switch(eName){
+    switch(eName) {
         case '.html':
             cType = 'text/html';
         break;
@@ -28,7 +35,15 @@ http.createServer((req,res) => {
         break; 
     }
 
-    fs.readFile(process.cwd() + req.url, 'utf-8', (err, data) => {
+    if (isFolder(req.url)) {
+        fs.readdir(process.cwd() + req.url, 'utf-8', (err, files) => {
+            if (err) console.log('ERROR = ', err)
+            files.forEach(Element => res.write(Element + '\n'))
+            res.end()
+        })
+    } 
+
+    else  fs.readFile(process.cwd() + req.url, 'utf-8', (err, data) => {
 
         if (err) {
             fs.readFile(process.cwd()+'/public/404.html', (error, content) => {
@@ -44,6 +59,5 @@ http.createServer((req,res) => {
         }
         
     })
-
 
 }).listen(3000);
