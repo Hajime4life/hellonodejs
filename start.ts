@@ -2,18 +2,20 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-console.log(`Server is working on http://localhost:3000`)
+http.createServer((req,res) => { 
 
-http.createServer( (res,req) => {
+   
+    if (req.url === '/') req.url = '/index.html'
+    
+    let eName = path.extname(`${req.url}`)
+    let cType = 'text/html' 
 
-    let fold = '.' + req.url;
-    if (fold == './') 
-        fold = './index.html'
+    // console.log('Extname: ', eName)
+    // console.log('cType: ', cType)
+    // console.log('Fold: ', req.url)
 
-    let ex = path.extname(fold)
-    let cType = 'text/html'
 
-    switch(ex){
+    switch(eName){
         case '.html':
             cType = 'text/html';
         break;
@@ -30,27 +32,23 @@ http.createServer( (res,req) => {
             cType = 'text/plain';
         break; 
     }
-    
 
-    fs.readFile(process.cwd() + fold, 'utf-8', (err, data) => {
+    fs.readFile(process.cwd() + req.url, 'utf-8', (err, data) => {
+
         if (err) {
-            if (err.code == 'ENOENT') {
-                fs.readFile(process.cwd()+'/public/404.html', (err, data) => {
-                    res.writeHead(200, { 'Content-Type': cType });
-                    res.end(data, 'utf-8');
-                });
-            }   else {
-                res.writeHead(500)
-                res.write(`Sorry that's some server error!`)
-                res.end()
-            }
+            fs.readFile(process.cwd()+'public/404.html', (error, content) => {
+               
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(content, 'utf-8');
+            });
+        }    
+        
+        else {
+            res.writeHead(200, {'Content-Type': cType})
+            res.end(data, 'utf-8')
         }
-
-        res.writeHead(200, { 'Content-Type': cType });
-        res.end();
+        
     })
-
-    
 
 
 }).listen(3000);
