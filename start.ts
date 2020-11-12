@@ -4,7 +4,6 @@ const path = require('path')
 
 console.log('http://localhost:3000/')
 http.createServer((req,res) => { 
-  
     if (req.url === '/') req.url = '/index.html'
     
     let eName = path.extname(req.url)
