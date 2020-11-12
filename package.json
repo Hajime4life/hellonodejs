@@ -1,0 +1,22 @@
+{
+  "name": "hellonodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hajime4life/hellonodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hajime4life/hellonodejs/issues"
+  },
+  "homepage": "https://github.com/Hajime4life/hellonodejs#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.7"
+  }
+}

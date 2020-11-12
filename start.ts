@@ -9,7 +9,7 @@ function isFolder(someFolder) {
         return false;
     }
 }
-
+console.log('http://localhost:3000/')
 http.createServer((req,res) => { 
   
     if (req.url === '/') req.url = '/index.html'
