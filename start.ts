@@ -2,13 +2,6 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-function isFolder(someFolder) {
-    if (path.extname(someFolder) == '') {
-        return true;
-    } else {
-        return false;
-    }
-}
 console.log('http://localhost:3000/')
 http.createServer((req,res) => { 
   
@@ -25,31 +18,33 @@ http.createServer((req,res) => {
             cType = 'text/css';
         break;
         case '.png':
-            cType = 'text/png';
+            cType = 'image/png';
         break;
         case '.jpg':
-            cType = 'text/jpg';
+            cType = 'image/jpeg';
         break;     
+        case '.webp':
+            cType = 'image/webp'
+        break;
         default: 
-            cType = 'text/plain';
+            cType = 'text/html';
         break; 
     }
 
-    if (isFolder(req.url)) {
+    if ( fs.existsSync(process.cwd()+req.url) && path.extname(process.cwd()+req.url) == '' ) {
         fs.readdir(process.cwd() + req.url, 'utf-8', (err, files) => {
             if (err) console.log('ERROR = ', err)
             files.forEach(Element => res.write(Element + '\n'))
             res.end()
         })
     } 
-
-    else  fs.readFile(process.cwd() + req.url, 'utf-8', (err, data) => {
+    else fs.readFile(process.cwd() + req.url, 'utf-8', (err, data) => {
 
         if (err) {
-            fs.readFile(process.cwd()+'/public/404.html', (error, content) => {
+            fs.readFile(process.cwd() + '/public/404.html', (error, content) => {
                 if (error) throw error
-                res.writeHead(404, { 'Content-Type': cType });
-                res.end(content, 'utf-8');
+                    res.writeHead(404, { 'Content-Type': cType });
+                    res.end(content, 'utf-8');
             });
         }    
         
