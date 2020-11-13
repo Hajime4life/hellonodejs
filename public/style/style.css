@@ -2,6 +2,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body#mainHtml{
+    background-image: url(../img/someimg.jpg);
+
+}
+
 a{
     text-decoration: none;
     color: #f55a5a;
@@ -12,3 +17,4 @@ a{
     color:#e026269e;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+

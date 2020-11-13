@@ -2,9 +2,10 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-console.log('http://localhost:3000/')
+console.log('http://localhost:3000/ \n \n-----------ЗАПРОСЫ-----------')
+let i=0;
 http.createServer((req,res) => { 
-  
+    i++;
     if (req.url === '/') req.url = '/index.html'
     
     let eName = path.extname(req.url)
@@ -20,20 +21,29 @@ http.createServer((req,res) => {
         case '.png':
             cType = 'image/png';
         break;
+        case '.png':
+          cType = 'image/png';
+        break;      
         case '.jpg':
-            cType = 'image/jpeg';
-        break;     
-        case '.webp':
-            cType = 'image/webp'
+            cType = 'image/jpg';
         break;
-        default: 
-            cType = 'text/html';
-        break; 
+        case '.wav':
+            cType = 'audio/wav';
+        break;
     }
+
+    //----------Проверка запросов--------
+
+
+    console.log(`${i}.${i}) URL ====== `,req.url)
+    console.log(`${i}.${i+1}) cTYPE ==== `,cType)
+    console.log('-----------------------------')
+    //----------Проверка запросов--------
+
 
     if ( fs.existsSync(process.cwd()+req.url) && path.extname(process.cwd()+req.url) == '' ) {
         fs.readdir(process.cwd() + req.url, 'utf-8', (err, files) => {
-            if (err) console.log('ERROR = ', err)
+            if (err) throw err
             files.forEach(Element => res.write(Element + '\n'))
             res.end()
         })
