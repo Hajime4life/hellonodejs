@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Hajime4life/hellonodejs#readme",
   "devDependencies": {
     "@types/node": "^14.14.7"
+  },
+  "dependencies": {
+    "pug": "^3.0.0"
   }
 }
