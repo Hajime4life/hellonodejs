@@ -46,8 +46,6 @@ http.createServer((req,res) => {
     }
 
     //----------Проверка запросов--------
-
-
     console.log(`${i}.${i}) URL ====== `,req.url)
     console.log(`${i}.${i+1}) cTYPE ==== `,cType)
     console.log('-----------------------------')
