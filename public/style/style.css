@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 body#errorPage{
     background-image: url(../img/404.png);
     background-color: black;
@@ -47,6 +48,7 @@ body#errorPage{
     text-align: center;
 }
 
+
 #secondPage>div>h2{
     font-size: 200px;
     color: #1ab5f16b;
@@ -60,13 +62,42 @@ body#errorPage{
     text-decoration: none;
     color: #f55a5a;
     font-size: 20px;
+    background-color: #5d5a5927;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    padding: 5px;
+    padding-top: 0px;
+    border-radius: 5px;
 }
 
 .link:hover {
     color: #11e22283;
-    text-shadow: 0 0 10px rgba(0,0,0,0.4);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 #link2:hover{
     color:#2cbbf3d8;
+}
+
+
+@media ( max-width:1100px ) {
+    #main>div>h1{
+        font-size: 100px;
+    }
+    #main>div>h2{
+        font-size: 100px;
+    }
+    #secondPage>div>h1{
+        font-size: 100px;
+    }
+    #secondPage>div>h2{
+        font-size: 100px;
+    }
+
+    a.link  {
+        display: inline-block;
+       position: relative;
+       margin: 0 50%;
+       white-space: nowrap;
+    }
+
 }
