@@ -1,3 +1,19 @@
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
+// ЗАПУСК ПРОЕКТА "npm start"
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
@@ -21,9 +37,6 @@ http.createServer((req,res) => {
         case '.png':
             cType = 'image/png';
         break;
-        case '.png':
-          cType = 'image/png';
-        break;      
         case '.jpg':
             cType = 'image/jpg';
         break;
