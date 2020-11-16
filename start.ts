@@ -43,13 +43,13 @@ http.createServer((req,res) => {
 
 
     if ( fs.existsSync(process.cwd()+req.url) && path.extname(process.cwd()+req.url) == '' ) {
-        fs.readdir(process.cwd() + req.url, 'utf-8', (err, files) => {
+        fs.readdir(process.cwd() + req.url, (err, files) => {
             if (err) throw err
             files.forEach(Element => res.write(Element + '\n'))
             res.end()
         })
     } 
-    else fs.readFile(process.cwd() + req.url, 'utf-8', (err, data) => {
+    else fs.readFile(process.cwd() + req.url,  (err, data) => {
 
         if (err) {
             fs.readFile(process.cwd() + '/public/404.html', (error, content) => {
