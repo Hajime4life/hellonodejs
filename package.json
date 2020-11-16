@@ -10,7 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/Hajime4life/hellonodejs.git"
   },
-  "author": "",
+  "author": "Doguzia German",
+
+  "scripts": {
+		"start": "node start.ts"
+  },
+  
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Hajime4life/hellonodejs/issues"
