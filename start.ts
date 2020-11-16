@@ -3,17 +3,7 @@
 // ЗАПУСК ПРОЕКТА "npm start"
 // ЗАПУСК ПРОЕКТА "npm start"
 // ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
-// ЗАПУСК ПРОЕКТА "npm start"
+
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
