@@ -4,6 +4,7 @@
   "description": "",
   "main": "start.ts",
   "scripts": {
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore '**/*.spec.ts' --exec ts-node start.ts",
     "start": "node start.ts"
   },
   "repository": "git+https://github.com/Hajime4life/hellonodejs.git",
@@ -17,6 +18,10 @@
     "@types/node": "^14.14.7"
   },
   "dependencies": {
-    "pug": "^3.0.0"
+    "nodemon": "^2.0.6",
+    "pug": "^3.0.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5",
+    "yarn": "^1.22.10"
   }
 }
