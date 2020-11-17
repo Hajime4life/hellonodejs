@@ -3,9 +3,50 @@
     margin: 0;
     padding: 0;
 }
+html{
+    background-color: #fcc062;
+}
+/*РАБОТА НАД HEADAER*/
+.header{
+    height: 100px;
+    width: 100%;
+    background-color: #fcc062;
+    
+}
 
+.header>ul{
+    border: 1px solid rgba(0, 0, 0, 0.397);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    padding: 4px 0px;
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    list-style-type : none;
+    display: flex;
+    justify-content: space-around;
+
+}
+.header>ul>li{
+    margin-top: calc(50%-50px);
+}
+/*РАБОТА НАД HEADAER*/
+a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.658);
+    font-size: 20px;
+    font-size: bold;
+    
+}
+
+a:hover{
+    color: #0dcf1d6b;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
 
 #errorPage {
+    
     background-image: url(../img/404.png);
     background-color: black;
     background-position: top;
