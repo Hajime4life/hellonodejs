@@ -4,18 +4,10 @@
   "description": "",
   "main": "start.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node start.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hajime4life/hellonodejs.git"
-  },
+  "repository": "git+https://github.com/Hajime4life/hellonodejs.git",
   "author": "Doguzia German",
-
-  "scripts": {
-		"start": "node start.ts"
-  },
-  
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Hajime4life/hellonodejs/issues"
